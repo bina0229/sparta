@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<!-- HTML에 이 부분을 추가하고 -->
+
+<head>
+
+	<link href="https://fonts.googleapis.com/css?family=Cute+Font&display=swap" rel="stylesheet">
+	<!-- Webpage Title -->
+	<title>수지니 쇼핑몰</title>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- JS -->		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- 이름id="addon-wrapping", 수량id="inputGroupSelect01, 
+주소, 휴대폰번호id="inputGroup-sizing-sm 중 하나라도 입력되어 있지 않으면, alert이 뜨고,
+입력 안한 곳에 포커스가 맞춰지도록 해보세요.(JQuery의 .focus()를 이용하면 굿!) -->
+<script>
+	function q1(){
+		let q1_val = $("#name").val();
+		let q2_val = $("#ordernumber").val();
+		let q3_val = $("#adress").val();
+		let q4_val = $("#telenumber").val();
+
+		if(q1_val == ''){
+			alert("주문자 이름을 입력하세요.");
+			$('#name').focus();
+		} else if(q2_val == "수량을 선택하세요"){
+			alert("수량을 입력하세요.");
+			$('#ordernumber').focus();
+		} else if(q3_val == ''){
+			alert("주소를 입력하세요.");
+			$('#adress').focus();
+		} else if(q4_val == ''){
+			alert("전화번호를 입력하세요.");
+			$('#telenumber').focus();
+		}
+		else{
+			alert("입력이 되었습니다. 주문 완료!!");
+		}	
+	}
+</script>
+
+<!-- <script>
+	function isMobile(phoneNum) { 
+		var regExp =/(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/; 
+		var myArray; 
+		if(regExp.test(phoneNum)){ 
+			myArray = regExp.exec(phoneNum); 
+			// console.log(myArray[1]); 
+			// console.log(myArray[2]); 
+			// console.log(myArray[3]); 
+			return true; 
+		} else { 
+			return false; 
+		} 
+	}
+
+</script> -->
+
+<style type="text/css">
+	.all{
+		width: 80%;
+		margin: auto;
+		padding: 30px;
+	}
+	*{font-family: 'Cute Font', cursive;}
+	.input-group{padding: 15px;}
+	.order_btn{text-align: center;}
+	.center{align:center;}
+
+</style>
+
+</head>
+<body>
+	<div class="all"> 
+
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<img src="http://image.kyobobook.co.kr/images/book/xlarge/490/x9780385496490.jpg" height="300px;">
+				<h1 class="display-4" >
+					Tuesdays with Morrie <h5>정가 : 10,400원</h5>
+				</h1>
+				<p class="lead">삶과 사랑의 진정한 가치를 일깨우는 책. 루게릭 병에 걸리기 전까지 브랜다이스 대학에서 평생학생들을 가르친 노교수 모리 슈워츠. 죽음을 앞둔 노교수가 20년만에 만난 제자와의 만남에서 들려준 가슴 벅찬 이야기들이 진정한 인간의 가치를 깨닫게 해주는 글이다
+
+				A sportswriter conveys the wisdom of his late mentor, professor Morrie Schwartz, recounting their weekly conversations as Schwartz lay dying.</p>
+			</div>
+		</div>
+
+		<div class="input-group flex-nowrap">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="addon-wrapping" font-weight="bolder ">주문자이름</span>
+			</div>
+			<input id="name" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+		</div>
+
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<label class="input-group-text" for="inputGroupSelect01">수량</label>
+			</div>
+			<select class="custom-select" id="ordernumber">
+				<option selected>수량을 선택하세요</option>
+				<option value="1">1개</option>
+				<option value="2">2개</option>
+				<option value="3">3개</option>
+			</select>
+		</div>
+
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text">주소</span>
+			</div>
+			<textarea id="adress" class="form-control" aria-label="With textarea"></textarea>
+		</div>
+
+		<div class="input-group input-group-sm mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="inputGroup-sizing-sm">전화번호</span>
+			</div>
+			<input id="telenumber" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+		</div>
+
+		<div class="center">
+			<button onclick="q1()" type="button" class="order_btn btn btn-primary">주문하기</button>
+		</div>
+
+	</div>
+</body>
+</html>
